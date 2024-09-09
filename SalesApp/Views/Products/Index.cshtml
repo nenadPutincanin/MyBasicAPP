@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SalesApp.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<button style="margin:10px; background-color:rgb(92, 166, 76)">
+    <a class="nav-link text-white-50" asp-action="Create">Kreiraj novi proizvod</a>
+</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Uredi</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductId">Obriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

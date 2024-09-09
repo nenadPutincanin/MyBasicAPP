@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SalesApp.Models.Lifleti>
+
+@{
+    ViewData["Title"] = "FilterByClient";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+@using (Html.BeginForm("FilterByClient", "Lifletis"))
+{
+    <input type="text" name="ClientName" placeholder="Kupac" />
+   
+    <button type="submit" class="btn-primary">Filtriraj</button>
+
+}
+
+
+<button style="margin:10px; background-color:rgb(92, 166, 76)">
+    <a class="nav-link text-white-50" asp-action="Create">Kreiraj novi liflet</a>
+</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.ClientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdditionalDiscount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTo)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.ClientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdditionalDiscount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTo)
+                </td>
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LifletId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.LifletId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LifletId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,63 @@
+﻿@model SalesApp.Models.Client
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label"></label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientAdress" class="control-label"></label>
+                <input asp-for="ClientAdress" class="form-control" />
+                <span asp-validation-for="ClientAdress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientPlace" class="control-label"></label>
+                <input asp-for="ClientPlace" class="form-control" />
+                <span asp-validation-for="ClientPlace" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitDay" class="control-label"></label>
+                <input asp-for="VisitDay" class="form-control" />
+                <span asp-validation-for="VisitDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegularDiscount" class="control-label"></label>
+                <input asp-for="RegularDiscount" class="form-control" />
+                <span asp-validation-for="RegularDiscount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaysInDays" class="control-label"></label>
+                <input asp-for="PaysInDays" class="form-control" />
+                <span asp-validation-for="PaysInDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegionName" class="control-label"></label>
+                <input asp-for="RegionName" class="form-control" />
+                <span asp-validation-for="RegionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Snimi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="margin-top:10px">
+    <a asp-action="Index" class="btn btn-warning">Lista kupaca</a>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

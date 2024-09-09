@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SalesApp.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("FilterByDateOrders", "Orders"))
+{
+    <div class='input-group date'>
+    <input type="date"  class="form-control" name="from" placeholder="from" />
+    <input type="date" class="form-control" name="to" placeholder="to" />
+    <button type="submit" class="btn-primary">Filtriraj</button>
+    </div>
+
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.ClientName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Client.ClientName)
+            </td>
+            <td>
+                <a asp-controller="Sales"  asp-action="Edit" asp-route-id="@item.OrderId">Uredi</a> |
+                <a asp-action="Details" asp-route-id="@item.OrderId">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderId">Obriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

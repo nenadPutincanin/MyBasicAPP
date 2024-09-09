@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SalesApp.Models.ViewModel.Potrazivanja>
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOfClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountOfDebt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOfClient)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.AmountOfDebt)
+            </td>
+          
+        </tr>
+}
+    </tbody>
+</table>

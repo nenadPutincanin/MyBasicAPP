@@ -1,0 +1,45 @@
+﻿@model SalesApp.Models.ViewModel.Report
+
+
+@{
+    ViewData["Title"] = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Izveštaj prodaje</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderWeight) 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderSum)
+            </th>
+     
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        
+            <tr>
+                <td>
+                    @Html.DisplayFor(model=>model.OrderNumber)
+                </td>
+                <td>
+                @Html.DisplayFor(model=>model.OrderWeight) kg
+                </td>
+                <td>
+                @Html.DisplayFor(model => model.OrderSum)rsd
+                </td>
+              
+            </tr>
+        
+    </tbody>
+</table>
